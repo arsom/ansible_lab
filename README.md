@@ -10,6 +10,7 @@
 - templates
 - handlers (Optional)
 - roles (Optional)
+
 ---
 เตรียมเครื่อง 
 - ติดตั้ง vagrant 
