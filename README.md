@@ -5,6 +5,7 @@
 - vagrant 
 - command
 - playbooks
+- Loop
 - when conditions
 - managing file 
 - templates
