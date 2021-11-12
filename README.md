@@ -37,3 +37,18 @@ ansible -i hosts all -m apt -a name=net-tools  --key-file /home/arsom/.ssh/ansib
 ## Playbooks
 
 ---
+## Variable
+
+----
+## Loop
+
+----
+## Condition
+
+----
+## file
+
+----
+## template
+
+----
