@@ -1,0 +1,13 @@
+---
+- name: Remove Apache 
+  hosts: all
+  become: true
+  tasks:
+    - name: Update Repo
+      apt:
+       update_cache: yes
+
+    - name: Remove apache
+      apt:
+        name: apache2
+        state: absent 

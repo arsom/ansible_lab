@@ -1,0 +1,13 @@
+---
+- name: Install Apache 
+  hosts: all
+  become: true
+  tasks:
+    - name: Update Repo
+      apt:
+       update_cache: yes
+
+    - name: Install apache
+      apt:
+        name: apache2
+        state: present 

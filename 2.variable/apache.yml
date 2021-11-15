@@ -1,0 +1,15 @@
+---
+- name: Install Apache 
+  hosts: all
+  become: true
+  vars:
+    apache_package: apache2
+  tasks:
+    - name: Update Repo
+      apt:
+       update_cache: yes
+
+    - name: Install apache
+      apt:
+        name: "{{apache_package}}"
+        state: present 

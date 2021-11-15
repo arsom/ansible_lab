@@ -1,0 +1,16 @@
+---
+- name: Install Apache 
+  hosts: all
+  become: true
+  tasks:
+    - name: Update Repo
+      apt:
+       update_cache: yes
+
+    - name: Install apache
+      apt:
+        name: "{{item}}"
+        state: present 
+      with_items:
+        - apache2
+        - libapache2-mod-php
