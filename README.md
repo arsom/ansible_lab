@@ -22,6 +22,8 @@
 ## SSH
 
 ----
+ssh-copy-id -i ~/.ssh/ansible.pub vagrant@192.168.56.10
+export ANSIBLE_CONFIG=./ansible.cfg
 ## Adhoc
 ```
 ansible all -m ping
@@ -38,17 +40,21 @@ ansible -i hosts all -m apt -a name=net-tools  --key-file /home/arsom/.ssh/ansib
 
 ---
 ## Variable
+ - host variable 
+ - group variable
 
 ----
 ## Loop
-
+ - with_*
+ - loop
 ----
 ## Condition
-
+ - when 
 ----
 ## file
-
+ - copy 
+ - tar
 ----
 ## template
-
+ - jinja
 ----
