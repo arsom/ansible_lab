@@ -1,0 +1,54 @@
+---
+- name: Install Apache 
+  hosts: all
+  become: true
+  tasks:
+    - name: Update Repo
+      apt:
+       update_cache: yes
+      when: ansible_distribution == "Ubuntu"
+
+    - name: Install apache
+      apt:
+        name: "{{item}}"
+        state: present 
+      with_items:
+        - apache2
+        - libapache2-mod-php
+      when: ansible_distribution == "Ubuntu"
+
+    - name: Update Repo
+      dnf:
+       update_cache: yes
+      when: ansible_distribution == "CentOS"
+      
+    - name: Install httpd
+      dnf:
+        name: "{{item}}"
+        state: present 
+      with_items:
+        - httpd
+        - php
+      when: ansible_distribution == "CentOS"
+
+    - name: start http (CentOS)
+      service: 
+        name: httpd
+        state: started
+        enabled: yes
+      when: ansible_distribution == "CentOS" 
+
+    - name: copy default html file for site
+      copy:
+        src: index.html
+        dest: /var/www/html/index.html
+        owner: root
+        group: root
+        mode: 0644
+
+    - name: restart httpd (CentOS)
+      tags: apache,centos,httpd
+      service:
+        name: httpd
+        state: restarted
+      when: ansible_distribution == "CentOS"
