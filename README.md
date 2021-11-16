@@ -40,6 +40,7 @@ ansible -i hosts all -m apt -a name=net-tools  --key-file /home/arsom/.ssh/ansib
 
 ---
 ## Variable
+ - inventory variable
  - host variable 
  - group variable
 
@@ -50,11 +51,14 @@ ansible -i hosts all -m apt -a name=net-tools  --key-file /home/arsom/.ssh/ansib
 ----
 ## Condition
  - when 
+
 ----
 ## file
  - copy 
  - tar
+
 ----
 ## template
  - jinja
+ 
 ----
